@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './App.css';
-import { bubbleSort, insertionSort, selectionSort, shellSort, heapSort, radixSort, quickSort, mergeSort } from './SortingAlgorithms';
+import * as algorithms from './algorithms';
 import ArrayVisualizer from './ArrayVisualizer';
 
 const SortingVisualizer = () => {
@@ -8,64 +8,80 @@ const SortingVisualizer = () => {
   const [isSorting, setIsSorting] = useState(false);
   const [speed, setSpeed] = useState(50);
   const [size, setSize] = useState(50);
+  const [selectedAlgorithm, setSelectedAlgorithm] = useState('bubbleSort');
 
-  const generateArray = (size) => {
-    const newArray = [];
-    for (let i = 0; i < size; i++) {
-      newArray.push(Math.floor(Math.random() * 500) + 10);
-    }
-    setArray(newArray);
-  };
+  const generateArray = useCallback(
+    (sizeToGen = size) => {
+      const newArray = [];
+      for (let i = 0; i < sizeToGen; i++) {
+        newArray.push(Math.floor(Math.random() * 500) + 10);
+      }
+      setArray(newArray);
+    },
+    [size],
+  );
 
-  const handleSorting = async (sortFunction) => {
+  useEffect(() => {
+    generateArray();
+  }, [generateArray]);
+
+  const handleSorting = async () => {
     setIsSorting(true);
-    await sortFunction(array, setArray, speed);
+    const sortFunction = algorithms[selectedAlgorithm];
+    if (sortFunction) {
+      await sortFunction(array, setArray, speed);
+    }
     setIsSorting(false);
   };
 
   return (
     <div className="visualizer-container">
+      <h1 className="title">Sorting Visualizer</h1>
+
       <div className="controls">
-        <button onClick={() => generateArray(size)} disabled={isSorting}>
-          Generate New Array
+        <button className="secondary-btn" onClick={() => generateArray(size)} disabled={isSorting}>
+          Generate Array
         </button>
 
-        {/* Sorting Algorithm Buttons */}
-        <button onClick={() => handleSorting(bubbleSort)} disabled={isSorting}>Bubble Sort</button>
-        <button onClick={() => handleSorting(insertionSort)} disabled={isSorting}>Insertion Sort</button>
-        <button onClick={() => handleSorting(selectionSort)} disabled={isSorting}>Selection Sort</button>
-        <button onClick={() => handleSorting(shellSort)} disabled={isSorting}>Shell Sort</button>
-        <button onClick={() => handleSorting(heapSort)} disabled={isSorting}>Heap Sort</button>
-        <button onClick={() => handleSorting(radixSort)} disabled={isSorting}>Radix Sort</button>
-        <button onClick={() => handleSorting(quickSort)} disabled={isSorting}>Quick Sort</button>
-        <button onClick={() => handleSorting(mergeSort)} disabled={isSorting}>Merge Sort</button>
+        <div className="vertical-divider"></div>
 
-        {/* Dropdown for Array Size */}
-        <select
-          value={size}
-          onChange={(e) => setSize(Number(e.target.value))}
-          disabled={isSorting}
-        >
-          <option value="20">20</option>
-          <option value="50">50</option>
-          <option value="100">100</option>
-          <option value="150">150</option>
-          <option value="200">200</option>
-        </select>
+        <div className="select-wrapper">
+          <label>Algorithm</label>
+          <select value={selectedAlgorithm} onChange={(e) => setSelectedAlgorithm(e.target.value)} disabled={isSorting}>
+            <option value="bubbleSort">Bubble Sort</option>
+          </select>
+        </div>
 
-        {/* Dropdown for Speed */}
-        <select
-          value={speed}
-          onChange={(e) => setSpeed(Number(e.target.value))}
-          disabled={isSorting}
-        >
-          <option value="10">Very Slow</option>
-          <option value="30">Slow</option>
-          <option value="50">Normal</option>
-          <option value="100">Fast</option>
-          <option value="200">Very Fast</option>
-        </select>
+        <div className="select-wrapper">
+          <label>Size</label>
+          <select value={size} onChange={(e) => setSize(Number(e.target.value))} disabled={isSorting}>
+            <option value="20">20 Items</option>
+            <option value="50">50 Items</option>
+            <option value="100">100 Items</option>
+            <option value="150">150 Items</option>
+            <option value="200">200 Items</option>
+          </select>
+        </div>
+
+        <div className="select-wrapper">
+          <label>Speed</label>
+          <select value={speed} onChange={(e) => setSpeed(Number(e.target.value))} disabled={isSorting}>
+            <option value="5">Insane</option>
+            <option value="15">Very Fast</option>
+            <option value="30">Fast</option>
+            <option value="50">Normal</option>
+            <option value="100">Slow</option>
+            <option value="200">Very Slow</option>
+          </select>
+        </div>
+
+        <div className="vertical-divider"></div>
+
+        <button className="primary" onClick={handleSorting} disabled={isSorting}>
+          Sort!
+        </button>
       </div>
+
       <ArrayVisualizer array={array} isSorting={isSorting} speed={speed} />
     </div>
   );

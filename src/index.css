@@ -1,13 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --bg-color: #0b0f19;
+  --panel-bg: rgba(23, 31, 46, 0.65);
+  --border-color: rgba(240, 246, 252, 0.1);
+  --text-primary: #e2e8f0;
+  --text-secondary: #94a3b8;
+  --accent-color: #3b82f6;
+  --accent-hover: #2563eb;
+  --bar-default: #8b5cf6;
+  --bar-computing: #f43f5e;
+  --bar-sorted: #10b981;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family:
+    "Outfit",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    "Roboto",
+    "Oxygen",
+    "Ubuntu",
+    "Cantarell",
+    "Fira Sans",
+    "Droid Sans",
+    "Helvetica Neue",
     sans-serif;
+  background-color: var(--bg-color);
+  background-image:
+    radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.08), transparent 30%),
+    radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.08), transparent 30%),
+    radial-gradient(circle at 50% 100%, rgba(244, 63, 94, 0.05), transparent 40%);
+  color: var(--text-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }

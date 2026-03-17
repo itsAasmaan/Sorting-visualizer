@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
 const ArrayVisualizer = ({ array, isSorting, speed }) => {
-  const maxHeight = 500; // Set max height of the container (as specified in CSS)
-  const maxBarHeight = Math.max(...array); // Find the maximum value in the array
-  const scaleFactor = maxHeight / maxBarHeight; // Calculate the scaling factor to fit bars within the container
+  const maxHeight = 460;
+  const maxBarHeight = Math.max(...array, 1);
+  const scaleFactor = maxHeight / maxBarHeight;
 
   return (
     <div className="array-container">
@@ -12,8 +12,9 @@ const ArrayVisualizer = ({ array, isSorting, speed }) => {
           className="array-bar"
           key={index}
           style={{
-            height: `${value * scaleFactor}px`, // Scale the height based on the max bar height
-            backgroundColor: isSorting ? 'orange' : 'teal',
+            height: `${value * scaleFactor}px`,
+            backgroundColor: isSorting ? "var(--bar-computing)" : "var(--bar-default)",
+            boxShadow: isSorting ? "0 -4px 15px rgba(244, 63, 94, 0.6)" : "0 -2px 10px rgba(139, 92, 246, 0.3)",
           }}
         ></div>
       ))}
