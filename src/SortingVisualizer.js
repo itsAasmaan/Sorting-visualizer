@@ -49,6 +49,7 @@ const SortingVisualizer = () => {
           <label>Algorithm</label>
           <select value={selectedAlgorithm} onChange={(e) => setSelectedAlgorithm(e.target.value)} disabled={isSorting}>
             <option value="bubbleSort">Bubble Sort</option>
+            <option value="selectionSort">Selection Sort</option>
           </select>
         </div>
 
@@ -79,6 +80,9 @@ const SortingVisualizer = () => {
 
         <button className="primary" onClick={handleSorting} disabled={isSorting}>
           Sort!
+        </button>
+        <button className="secondary-btn" onClick={() => generateArray(size)} disabled={isSorting}>
+          Reset
         </button>
       </div>
 
