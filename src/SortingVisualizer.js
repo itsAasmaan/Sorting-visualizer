@@ -1,14 +1,14 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import './App.css';
-import * as algorithms from './algorithms';
-import ArrayVisualizer from './ArrayVisualizer';
+import React, { useState, useEffect, useCallback } from "react";
+import "./App.css";
+import * as algorithms from "./algorithms";
+import ArrayVisualizer from "./ArrayVisualizer";
 
 const SortingVisualizer = () => {
   const [array, setArray] = useState([]);
   const [isSorting, setIsSorting] = useState(false);
   const [speed, setSpeed] = useState(50);
   const [size, setSize] = useState(50);
-  const [selectedAlgorithm, setSelectedAlgorithm] = useState('bubbleSort');
+  const [selectedAlgorithm, setSelectedAlgorithm] = useState("bubbleSort");
 
   const generateArray = useCallback(
     (sizeToGen = size) => {
