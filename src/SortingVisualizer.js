@@ -51,6 +51,7 @@ const SortingVisualizer = () => {
             <option value="bubbleSort">Bubble Sort</option>
             <option value="selectionSort">Selection Sort</option>
             <option value="insertionSort">Insertion Sort</option>
+            <option value="cocktailShakerSort">Cocktail Shaker Sort</option>
           </select>
         </div>
 
