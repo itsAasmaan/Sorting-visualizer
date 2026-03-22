@@ -2,3 +2,6 @@ export { bubbleSort } from "./bubbleSort";
 export { selectionSort } from "./selectionSort";
 export { insertionSort } from "./insertionSort";
 export { cocktailShakerSort } from "./cocktailShakerSort";
+export { gnomeSort } from "./gnomeSort";
+export { oddEvenSort } from "./oddEvenSort";
+export { combSort } from "./combSort";

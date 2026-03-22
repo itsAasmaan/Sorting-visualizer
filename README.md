@@ -12,9 +12,9 @@ This project aims to be a comprehensive library of sorting methodologies.
 - [x] **Insertion Sort**
 - [x] **Selection Sort**
 - [x] **Cocktail Shaker Sort** (Bidirectional Bubble Sort)
-- [ ] **Gnome Sort**
-- [ ] **Odd-Even Sort** (Brick Sort)
-- [ ] **Comb Sort**
+- [x] **Gnome Sort**
+- [x] **Odd-Even Sort** (Brick Sort)
+- [x] **Comb Sort**
 
 ### Efficient / O(n log n) Comparison Sorts
 

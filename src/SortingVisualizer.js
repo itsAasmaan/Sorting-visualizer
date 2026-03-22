@@ -52,6 +52,9 @@ const SortingVisualizer = () => {
             <option value="selectionSort">Selection Sort</option>
             <option value="insertionSort">Insertion Sort</option>
             <option value="cocktailShakerSort">Cocktail Shaker Sort</option>
+            <option value="gnomeSort">Gnome Sort</option>
+            <option value="oddEvenSort">Odd-Even Sort</option>
+            <option value="combSort">Comb Sort</option>
           </select>
         </div>
 

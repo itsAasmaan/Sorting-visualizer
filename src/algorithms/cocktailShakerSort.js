@@ -31,6 +31,6 @@ export const cocktailShakerSort = async (array, setArray, speed) => {
       }
     }
 
-    +start;
+    ++start;
   }
 };
