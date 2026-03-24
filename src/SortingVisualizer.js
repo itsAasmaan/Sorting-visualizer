@@ -55,6 +55,7 @@ const SortingVisualizer = () => {
             <option value="gnomeSort">Gnome Sort</option>
             <option value="oddEvenSort">Odd-Even Sort</option>
             <option value="combSort">Comb Sort</option>
+            <option value="quickSort">Quick Sort</option>
           </select>
         </div>
 

@@ -5,3 +5,4 @@ export { cocktailShakerSort } from "./cocktailShakerSort";
 export { gnomeSort } from "./gnomeSort";
 export { oddEvenSort } from "./oddEvenSort";
 export { combSort } from "./combSort";
+export { quickSort } from "./quickSort";

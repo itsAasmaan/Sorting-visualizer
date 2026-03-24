@@ -12,7 +12,7 @@ export const gnomeSort = async (array, setArray, speed) => {
     } else {
       [arr[idx], arr[idx - 1]] = [arr[idx - 1], arr[idx]];
       setArray([...arr]);
-      sleep(speed);
+      await sleep(speed);
       idx--;
     }
   }
