@@ -25,7 +25,7 @@ export const quickSort = async (array, setArray, speed) => {
 
   async function quickSortRecursion(arr, low, high) {
     if (low < high) {
-      let p = partition(arr, low, high);
+      let p = await partition(arr, low, high);
       quickSortRecursion(arr, low, p - 1);
       quickSortRecursion(arr, p + 1, high);
     }
