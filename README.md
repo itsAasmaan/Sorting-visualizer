@@ -18,9 +18,9 @@ This project aims to be a comprehensive library of sorting methodologies.
 
 ### Efficient / O(n log n) Comparison Sorts
 
-- [ ] **Quick Sort**
-- [ ] **Merge Sort**
-- [ ] **Heap Sort**
+- [x] **Quick Sort**
+- [x] **Merge Sort**
+- [x] **Heap Sort**
 - [ ] **Tree Sort**
 - [ ] **Tournament Sort**
 

@@ -57,6 +57,7 @@ const SortingVisualizer = () => {
             <option value="combSort">Comb Sort</option>
             <option value="quickSort">Quick Sort</option>
             <option value="mergeSort">Merge Sort</option>
+            <option value="heapSort">Heap Sort</option>
           </select>
         </div>
 

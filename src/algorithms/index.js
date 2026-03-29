@@ -7,3 +7,4 @@ export { oddEvenSort } from "./oddEvenSort";
 export { combSort } from "./combSort";
 export { quickSort } from "./quickSort";
 export { mergeSort } from "./mergeSort";
+export { heapSort } from "./heapSort";
